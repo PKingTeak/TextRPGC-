@@ -25,6 +25,13 @@ namespace ConsoleApp1
             //경험치는 플레이어 만 있으면 될듯
 
         }
+
+        protected virtual void LevelUp()
+        {
+            MaxExp = State.Level * 100;
+        }
+
+        protected int MaxExp = 100;
         protected string UnitName = "";
         protected UnitState State;
     }
