@@ -5,11 +5,12 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using ConsoleApp1;
 
-namespace ConsoleApp1
+namespace ConsoleApp1.Child
 {
     
-    internal class Player : Unit
+    public class Player : Unit
     {
         public Player()
         {
@@ -21,25 +22,43 @@ namespace ConsoleApp1
             State.defense = 5;
         }
 
-        public override void Tick() //컴파일러 가일부러 막았음 접근제한자 통일해야해 왜냐?? 부모 틱도 돌리니까
+        public override void Update() //컴파일러 가일부러 막았음 접근제한자 통일해야해 왜냐?? 부모 틱도 돌리니까
         {
-            base.Tick(); //이게 super다 
-            Console.Read();
+            base.Update(); //이게 super 부모 함수 가져와서 사용
             ShowPlayerState();
+          
+            Console.Read();//화면 멈추기
             
         }
 
         public void ShowPlayerState()
         {
-            Console.WriteLine($"레벨: {State.Level}\n이름: {this.UnitName}\n체력: {State.Hp}\nMp: {State.Mp}\n공격력: {State.Damage}\n방어력: {State.defense}\nGold: {State.Gold}");
+           
+            base.PrintState();
+          
+            Console.WriteLine("0. 나가기");
+            while (true)
+            {
+              string input = Console.ReadLine();
+                switch (input)
+                {
+                    case "0":
+                        return;
+                    default:
+                        break;
+                }
+              
+               
+            }
             //여기서 Item.Tick해서 이전으로 반복문으로 돌아가는 방식 
         }
 
-        private double MaxExp = 100;//1레벨 경험치 통 100; 레벨을 곱해서 점점 늘어날 예정
+        
 
-        public void GetItem(Item _item)
+        public void AddItem(Item _item)
         {
             Items.Add(_item); //아이템 추가
+            
         }
         public void ShowItemList()
         {
@@ -53,8 +72,8 @@ namespace ConsoleApp1
                 }
                 else 
                 {
-                    // Item.ItemData.
-                   // Console.WriteLine($"아이템:{item.Name} \n|공격력+{item.data.Testnum}"); //여기 item.data.damage이렇게
+                   
+                   Console.WriteLine($"아이템:{item.Name} \n|공격력"); //여기 item.data.damage이렇게
                 }
             }
         }
