@@ -7,48 +7,49 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace ConsoleApp1
 {
-    
-    internal class Item
+    //
+    public class Item //같은 어셈블리 어에서만 가능
     {
 
-        public Item(int _dameage, int _amor, bool _isOwn, string _info)
+        public Item(int _dameage, int _amor , bool _isOwn, string _info)
         {
             
-           // data.Testnum = _dameage;
-           // data.amor = _amor;
-           // data.isOwn = _isOwn;
-           // data.info = _info;
+           data.SetItemData(_dameage);
+         
+
         }
+
+        
         public struct ItemData
         {
             //선언과 동시에 정했기 때문에 friend기능은 없을듯 하다. 
 
             private int damage;
-            public int amor
-            {
-                get { return damage; }
-                private set { damage = value; }
-            }
+            private int amor;
             private bool isOwn;
             private string info;
 
-            public int Testnum
+         
+
+
+            public void SetItemData(int _damgae)
             {
-                get { return damage; }
-               private set { Testnum = value; }
-
-            } //프로퍼티
-
+                damage = _damgae;
+            }
         }
         
          
-
+        /// <summary>
+        /// Unit으로 묶을꺼고 
+        /// </summary>
+        /// <param name="_Name"></param>
 
         public void SettingName(string _Name)
         {
             Name = _Name;
         }
 
+       
         
 
 

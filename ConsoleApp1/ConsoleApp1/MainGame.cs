@@ -45,7 +45,7 @@ namespace TextRPG
                 switch (Input)
                 {
                     case 1: //상태
-                        player.ShowPlayerState();
+                        
                         break;
                     case 2://인벤토리
                         

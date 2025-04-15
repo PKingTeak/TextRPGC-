@@ -30,7 +30,16 @@ namespace ConsoleApp1
         {
             MaxExp = State.Level * 100;
         }
+        
+        public virtual void Tick()
+        {
+            Console.Clear();
+        }
 
+        //프린트 함수를 만들어서 virtual
+        //많이 쓰는
+
+        
         protected int MaxExp = 100;
         protected string UnitName = "";
         protected UnitState State;
