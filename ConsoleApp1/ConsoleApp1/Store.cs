@@ -46,7 +46,17 @@ namespace ConsoleApp1
 
                     Console.WriteLine("나가기 0");
                     string input = Console.ReadLine();
-                    int itemindex = int.Parse(input) - 1; //근데 문자가 아닐 경우 그냥 리턴할꺼임 //질문 이거 이상한값 들어오면 터짐 질문
+                    if (string.IsNullOrWhiteSpace(input))
+                    { 
+                        //이러면 이 값이 문자열이 NULL이 아닐때만 호출해주는것이다. 
+                    }
+
+
+                    if (int.TryParse(input, out int result))  
+                    { 
+                        
+                    
+                    int itemindex = result - 1; //근데 문자가 아닐 경우 그냥 리턴할꺼임 //질문 이거 이상한값 들어오면 터짐 질문
 
                     if (input == "0")
                     {
@@ -77,8 +87,8 @@ namespace ConsoleApp1
                         Console.WriteLine("잘못된 값을 입력하였습니다.");
                     }
 
-
-                     //멈추기
+                    }
+                    //멈추기
 
 
                 }

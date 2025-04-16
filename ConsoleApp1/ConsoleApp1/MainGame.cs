@@ -4,6 +4,7 @@ using System;
 using System.Collections.Specialized;
 using System.Data;
 using System.Runtime.InteropServices;
+using static ConsoleApp1.Unit;
 
 namespace TextRPG
 {
@@ -19,6 +20,9 @@ namespace TextRPG
             Player player = new Player();
             Store store = new Store();
             Inventory inventory = new Inventory();
+
+            
+
 
             Console.WriteLine("이름을 입력해주세요 ");
 
