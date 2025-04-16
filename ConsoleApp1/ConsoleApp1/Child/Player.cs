@@ -56,7 +56,7 @@ namespace ConsoleApp1.Child
         public void AddItem(Item _item)
         {
             Items.Add(_item); //아이템 추가
-            
+            State.Gold -= _item.GetGold();
         }
         public void ShowItemList()
         {
@@ -76,10 +76,7 @@ namespace ConsoleApp1.Child
             }
         }
 
-        public int GetPlayerGold()
-        {
-            return State.Gold;
-        }
+        
         
         List<Item> Items = new List<Item>();
 

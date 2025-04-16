@@ -51,7 +51,14 @@ namespace ConsoleApp1.Child
             {
                 case ItemType.Weapon :
                 {
+                if(this.equipment == true)
+                {
+                Console.WriteLine($"-{this.Name} \t| 공격력 +{this.State.Damage} \t| {this.State.Info}\t| [구매완료]");
+                }
+                else
+                {
                 Console.WriteLine($"-{this.Name} \t| 공격력 +{this.State.Damage} \t| {this.State.Info}\t| {this.State.Gold}G");
+                }
 
                 break;
                 }

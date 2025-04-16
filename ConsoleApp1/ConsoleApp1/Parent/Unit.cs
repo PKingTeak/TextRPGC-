@@ -58,6 +58,12 @@ namespace ConsoleApp1
         {
             MaxExp = State.Level * 100;
         }
+
+        public int GetGold()
+        {
+            return State.Gold;
+
+        }
         
         public virtual void Update()
         {

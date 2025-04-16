@@ -13,15 +13,15 @@ namespace ConsoleApp1
         public Store()
         {
             Item Sword = new Item();
-            Sword.Init(5,0,500,"단단한 검이다 무엇이든 벨수 있을꺼 같다");
+            Sword.Init(5, 0, 500, "단단한 검이다 무엇이든 벨수 있을꺼 같다");
             Sword.SettingName("강철 검");
             Sword.type = Item.ItemType.Weapon;
-            
+
             Item armor = new Item();
-            armor.Init(0,7,200,"질긴 가죽으로 만들어졌다 악취가 조금 난다.");
+            armor.Init(0, 7, 200, "질긴 가죽으로 만들어졌다 악취가 조금 난다.");
             armor.SettingName("가죽 갑옷");
             armor.type = Item.ItemType.Armor;
-            
+
             shopitems.Add(Sword);
             shopitems.Add(armor);
 
@@ -29,28 +29,67 @@ namespace ConsoleApp1
         private void Init()
         {
             Item ShopItem = new Item();
-            
+
 
         }
         public void Update()
         {
             Console.Clear();
-            Console.WriteLine("상점");
-            Console.WriteLine("필요한 아이템을 얻을 수 있는 상점입니다.");
-            Console.WriteLine();
-            Console.WriteLine($"[보유골드] \n {player.GetPlayerGold()} G");
-           
-            showShopList();
+            {
+                while (true)
+                {
+                    Console.WriteLine("상점");
+                    Console.WriteLine("필요한 아이템을 얻을 수 있는 상점입니다.");
+                    Console.WriteLine();
+                    Console.WriteLine($"[보유골드] \n {player.GetGold()} G");
+                    showShopList();
 
-            Console.Read(); //멈추기
+                    Console.WriteLine("나가기 0");
+                    string input = Console.ReadLine();
+                    int itemindex = int.Parse(input) - 1; //근데 문자가 아닐 경우 그냥 리턴할꺼임 
+
+                    if (input == "0")
+                    {
+                        return;
+                    }
+
+                    if (itemindex < shopitems.Count && player.GetGold() >= shopitems[itemindex].GetGold())
+                    {
+
+                        if (shopitems[itemindex].equipment == true)
+                        {
+                            Console.WriteLine("이미 구매한 아이템 입니다.");
+                            continue;
+                        }
+                        player.AddItem(shopitems[itemindex]); // 돈이 가격만큼 있다면 구매가능 하지만 없으면 구매 불가능
+                        shopitems[itemindex].HasItem();
+                        
 
 
+                    }
+                    else if (itemindex < shopitems.Count && player.GetGold() < shopitems[itemindex].GetGold())
+                    {
+
+                        Console.WriteLine("구매가 불가능합니다.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("잘못된 값을 입력하였습니다.");
+                    }
+
+
+                     //멈추기
+
+
+                }
+
+            }
         }
 
         private void showShopList()
         {
             Console.WriteLine("[아이템 목록]");
-            foreach(Item item in shopitems)
+            foreach (Item item in shopitems)
             {
                 item.ShowItemInfo();
 
@@ -72,7 +111,7 @@ namespace ConsoleApp1
 
         Player player;
         private List<Item> shopitems = new List<Item>();
-        
+
     }
 }
 
