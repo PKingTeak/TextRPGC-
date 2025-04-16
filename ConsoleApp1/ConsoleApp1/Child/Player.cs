@@ -26,7 +26,20 @@ namespace ConsoleApp1.Child
         {
             base.Update(); //이게 super 부모 함수 가져와서 사용
             ShowPlayerState();
-          
+            Console.WriteLine("아무키를 눌러주세요. 나가기");
+            while (true)
+            {
+                string input = Console.ReadLine();
+                switch (input)
+                {
+                    case "0":
+                        return;
+                    default:
+                        return;
+                }
+
+
+            }
             Console.Read();//화면 멈추기
             
         }
@@ -35,21 +48,6 @@ namespace ConsoleApp1.Child
         {
            
             base.PrintState();
-          
-            Console.WriteLine("0. 나가기");
-            while (true)
-            {
-              string input = Console.ReadLine();
-                switch (input)
-                {
-                    case "0":
-                        return;
-                    default:
-                        break;
-                }
-              
-               
-            }
             //여기서 Item.Tick해서 이전으로 반복문으로 돌아가는 방식 
         }
 
@@ -77,10 +75,15 @@ namespace ConsoleApp1.Child
                 }
             }
         }
+
+        public int GetPlayerGold()
+        {
+            return State.Gold;
+        }
         
         List<Item> Items = new List<Item>();
 
-       // ItemData item;
+       
        
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace ConsoleApp1
 {
@@ -26,7 +27,29 @@ namespace ConsoleApp1
 
         }
 
+        public void Update()
+        {
+            Console.Clear();
+            Console.WriteLine("상점");
+            Console.WriteLine("필요한 아이템을 얻을 수 있는 상점입니다.");
+            Console.WriteLine();
+            Console.WriteLine($"[보유골드] \n {player.GetPlayerGold()} G");
+           
+            Console.WriteLine();
 
+            Console.Read(); //멈추기
+
+
+        }
+
+        public void PlayerIn(Player _player)
+        {
+            player = _player; //플레이어 입장
+
+
+        }
+
+        Player player;
         
     }
 }
