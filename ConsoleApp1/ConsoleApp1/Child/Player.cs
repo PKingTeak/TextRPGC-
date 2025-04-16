@@ -40,7 +40,7 @@ namespace ConsoleApp1.Child
 
 
             }
-            Console.Read();//화면 멈추기
+           // Console.Read();//화면 멈추기
             
         }
 
