@@ -55,8 +55,9 @@ namespace ConsoleApp1.Child
 
         public void AddItem(Item _item)
         {
-            Items.Add(_item); //아이템 추가
-            State.Gold -= _item.GetGold();
+            //Items.Add(_item); //아이템 추가
+            inventory.AddItemToInv(_item);
+            State.Gold -= _item.GetGold(); //골드 차감
         }
         public void ShowItemList()
         {
@@ -78,8 +79,8 @@ namespace ConsoleApp1.Child
 
         
         
-        List<Item> Items = new List<Item>();
-
+        List<Item> Items = new List<Item>(); //직접 착용하고 있는 아이템 
+        Inventory inventory = new Inventory(); //인벤토리에 가지고 있는 아이템 
        
        
     }

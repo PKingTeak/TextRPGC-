@@ -18,6 +18,7 @@ namespace TextRPG
             //여기가 이제 실행 단계 
             Player player = new Player();
             Store store = new Store();
+            Inventory inventory = new Inventory();
 
             Console.WriteLine("이름을 입력해주세요 ");
 
@@ -40,7 +41,7 @@ namespace TextRPG
                         player.Update();
                         break;
                     case "2"://인벤토리
-                        player.ShowItemList();
+                        inventory.Update();
                         break;
                     case "3"://상점
                         store.PlayerIn(player);

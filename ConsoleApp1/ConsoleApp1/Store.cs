@@ -46,7 +46,7 @@ namespace ConsoleApp1
 
                     Console.WriteLine("나가기 0");
                     string input = Console.ReadLine();
-                    int itemindex = int.Parse(input) - 1; //근데 문자가 아닐 경우 그냥 리턴할꺼임 
+                    int itemindex = int.Parse(input) - 1; //근데 문자가 아닐 경우 그냥 리턴할꺼임 //질문 이거 이상한값 들어오면 터짐 질문
 
                     if (input == "0")
                     {
