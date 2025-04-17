@@ -51,12 +51,12 @@ namespace ConsoleApp1.Child
             //여기서 Item.Tick해서 이전으로 반복문으로 돌아가는 방식 
         }
 
-        
+       
 
         public void AddItem(Item _item)
         {
-            //Items.Add(_item); //아이템 추가
-            
+
+            StateUP(_item);
             State.Gold -= _item.GetGold(); //골드 차감
         }
         public void ShowItemList()

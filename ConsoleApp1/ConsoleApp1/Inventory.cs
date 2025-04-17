@@ -48,7 +48,7 @@ namespace ConsoleApp1
 
         private void ShowInventory()
         {
-            Myinventory = ItemDictionary.Instance.HasAllItem();
+            Myinventory = ItemDictionary.Instance.HasAllItem(); 
             foreach (var item in Myinventory)
             {
 

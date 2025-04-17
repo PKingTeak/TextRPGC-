@@ -79,7 +79,7 @@ namespace ConsoleApp1
 
         }
 
-        public void AddItem(Item item)
+        public void StateUP(Item item)
         {
             switch (item.type)
             {
@@ -93,7 +93,7 @@ namespace ConsoleApp1
                     break;
                 case ItemType.Armor:
                     {
-                          this.State.Damage += item.State.Damage;
+                        this.State.Damage += item.State.Damage;
                         this.State.defense += item.State.defense;
                         this.State.Hp += item.State.Hp;
                         
