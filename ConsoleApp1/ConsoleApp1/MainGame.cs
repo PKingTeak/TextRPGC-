@@ -21,10 +21,10 @@ namespace TextRPG
             Store store = new Store();
             Inventory inventory = new Inventory();
             ItemDictionary itemDictionary = ItemDictionary.Instance;
+            Dungun dungun = new Dungun();
 
 
 
-            
             Console.WriteLine("이름을 입력해주세요 ");
 
             if (player == null)
@@ -37,7 +37,7 @@ namespace TextRPG
             {
                 Console.Clear();
                 Console.WriteLine("TEXT RPG게임 세계에 오신걸 환영합니다.");
-                Console.WriteLine("이곳에서 던전으로 들어가기전 활동을 할 수 있습니다.\r\n\r\n1. 상태 보기\r\n2. 인벤토리\r\n3. 상점");
+                Console.WriteLine("이곳에서 던전으로 들어가기전 활동을 할 수 있습니다.\r\n\r\n1. 상태 보기\r\n2. 인벤토리\r\n3. 상점\r\n4. 던전");
                 Console.WriteLine("원하시는 행동을 입력해주세요. \n >>");
                 string Input = Console.ReadLine();
                 switch (Input)
@@ -51,6 +51,10 @@ namespace TextRPG
                     case "3"://상점
                         store.PlayerIn(player);
                         store.Update();
+                        break;
+                    case "4":
+                        dungun.PlayerIn(player);
+                        dungun.Update();
                         break;
                     default: 
                         Console.WriteLine("잘못된 입력입니다. >>");
