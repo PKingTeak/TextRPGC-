@@ -5,6 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using Newtonsoft.Json;
+//왜 처음에는 오류가 뜨는걸까??
+//비쥬얼 스튜디오 내부에서 기본적인것들은 바로 using이 되지만
+//좀더 무거운 라이브러리들은 패키지 필요할때마다 다운받아서 사용
+//회색은 쓴다고 선언하고 안쓴거다. 
+//Install-Package Newtonsoft.Json 해줘야 패키지가 된다. 
+//도구 - 패키지 관리자 - 패키지관리자 콘솔 - 하고 명령어를 치게 되면 된다. 
 
 namespace ConsoleApp1
 {
@@ -12,18 +19,10 @@ namespace ConsoleApp1
     {
         public Store()
         {
-            Item Sword = new Item();
-            Sword.Init(5, 0, 500, "단단한 검이다 무엇이든 벨수 있을꺼 같다");
-            Sword.SettingName("강철 검");
-            Sword.type = Item.ItemType.Weapon;
 
-            Item armor = new Item();
-            armor.Init(0, 7, 200, "질긴 가죽으로 만들어졌다 악취가 조금 난다.");
-            armor.SettingName("가죽 갑옷");
-            armor.type = Item.ItemType.Armor;
+            shopitems = ItemDictionary.Instance.GetAllItem();
 
-            shopitems.Add(Sword);
-            shopitems.Add(armor);
+
 
         }
         private void Init()
@@ -34,15 +33,18 @@ namespace ConsoleApp1
         }
         public void Update()
         {
-            Console.Clear();
+            
             {
                 while (true)
                 {
+                    Console.Clear();
                     Console.WriteLine("상점");
                     Console.WriteLine("필요한 아이템을 얻을 수 있는 상점입니다.");
                     Console.WriteLine();
                     Console.WriteLine($"[보유골드] \n {player.GetGold()} G");
-                    showShopList();
+                    ItemDictionary.Instance.ShowAllItem();
+
+                    
 
                     Console.WriteLine("나가기 0");
                     string input = Console.ReadLine();
@@ -96,18 +98,7 @@ namespace ConsoleApp1
             }
         }
 
-        private void showShopList()
-        {
-            Console.WriteLine("[아이템 목록]");
-            foreach (Item item in shopitems)
-            {
-                item.ShowItemInfo();
-
-
-            }
-
-
-        }
+       
         public void PlayerIn(Player _player)
         {
             player = _player; //플레이어 입장

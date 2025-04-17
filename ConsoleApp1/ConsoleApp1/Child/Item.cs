@@ -67,11 +67,11 @@ namespace ConsoleApp1.Child
                 {
                 if(this.equipment == true)
                 {
-                    Console.WriteLine($"-{this.Name}\t | 방어력 +{this.State.defense}\t| {this.State.Info}\t| [구매완료]");
+                    Console.WriteLine($"-{this.Name}\t| 방어력 +{this.State.defense}\t| {this.State.Info}\t| [구매완료]");
                 }
                 else
                 {
-                Console.WriteLine($"-{this.Name}\t | 방어력 +{this.State.defense}\t| {this.State.Info}\t| {this.State.Gold}G");
+                Console.WriteLine($"-{this.Name}\t| 방어력 +{this.State.defense}\t| {this.State.Info}\t| {this.State.Gold}G");
 
                 }
 

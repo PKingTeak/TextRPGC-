@@ -20,10 +20,11 @@ namespace TextRPG
             Player player = new Player();
             Store store = new Store();
             Inventory inventory = new Inventory();
+            ItemDictionary itemDictionary = ItemDictionary.Instance;
+
+
 
             
-
-
             Console.WriteLine("이름을 입력해주세요 ");
 
             if (player == null)

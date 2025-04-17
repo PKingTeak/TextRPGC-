@@ -11,7 +11,7 @@ namespace ConsoleApp1
     {
         public Inventory()
         {
-
+            
         }
         public void Update()
         {
@@ -44,25 +44,12 @@ namespace ConsoleApp1
 
         }
 
-        public void AddItemToInv(Item _item)
-        {
-            //Myinventory.Add( 10); //바로 넣을때 생성하면서 값을 넣어주는 방식을 자주 사용한다. 
-            if(Myinventory.ContainsKey(_item))
-            {
-                Myinventory[_item] +=1; //값증가
-
-            }
-            else
-            {
-
-            Myinventory.Add(_item, 1);
-            }
-            //딕셔너리를 넣을때 다른 방식을 사용해서 넣어야한다. 
-        }
+    
 
         private void ShowInventory()
         {
-            foreach (var item in Myinventory.Keys)
+            Myinventory = ItemDictionary.Instance.HasAllItem();
+            foreach (var item in Myinventory)
             {
 
                 if (showNum == true)
@@ -83,7 +70,7 @@ namespace ConsoleApp1
         }
 
         private bool showNum = false;
-        Dictionary<Item, int> Myinventory = new Dictionary<Item, int>();
+        List<Item> Myinventory = new List<Item>();
         //아이템 이름으로 찾는 경우가 많기 때문에 
         //value값에 따라 아이템을 
         //키값이 아이템 int 값인데 
