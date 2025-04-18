@@ -27,7 +27,7 @@ namespace TextRPG
 
 
             Console.WriteLine("이름을 입력해주세요 ");
-            Console.WriteLine("저장된 데이터가 있으면 1번을 눌러주세요");
+            Console.WriteLine("저장된 데이터가 있으면 1번을 눌러주세요 없다면 이름을 입력해주세요");
             
 
             if (player == null)
