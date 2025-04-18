@@ -55,10 +55,6 @@ namespace ConsoleApp1.Child
             //여기서 Item.Tick해서 이전으로 반복문으로 돌아가는 방식 
         }
 
-        public void ResetHP()
-        {
-            State.Hp = State.MaxHp;
-        }
        
 
         public void AddItem(Item _item)

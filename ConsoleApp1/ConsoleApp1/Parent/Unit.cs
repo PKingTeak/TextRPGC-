@@ -81,7 +81,11 @@ namespace ConsoleApp1
             Console.Clear();
         }
 
-        
+
+        public void ResetHP()
+        {
+            State.Hp = State.MaxHp;
+        }
 
         //프린트 함수를 만들어서 virtual
         //많이 쓰는
