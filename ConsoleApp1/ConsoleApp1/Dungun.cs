@@ -24,8 +24,13 @@ namespace ConsoleApp1
             //전투 시뮬레이션 
             while (true)
             {
-                Console.WriteLine("===== 난이도를 선택해주세요 =====");
+              
+                Console.WriteLine("===== 난이도를 선택해주세요 =====\n");
+                Console.WriteLine("===== 1.고블린(매우쉬움) \t2.오크(중간) \t3.대왕슬라임(매우 어려움) \t4.???(못깰껄?) =====");
+                Console.WriteLine("0번 나가기");
+                player.ResetHP();
                 string Input = Console.ReadLine();
+                
                 switch (Input)
                 {
                     case "0":
@@ -45,9 +50,15 @@ namespace ConsoleApp1
                             dungunlevel = 2;
                         }
                         break;
+                    case "4":
+                        {
+                            dungunlevel = 3;
+                        }
+                        break;
 
                 }
                 Battle();
+                Console.Clear();
             }
             
         }
@@ -88,7 +99,9 @@ namespace ConsoleApp1
                 if (CurMonster.GetHP() <=0)
                 {
                     Console.WriteLine("\n몬스터를 처치했습니다!");
-                   
+                    player.TakeGold(CurMonster.GetGold());
+                    Console.WriteLine("\n결과창 넘기기 [Enter]");
+                    Console.ReadLine();
                     break;
                 }
                 Console.WriteLine("\n 몬스터의 반격!");
@@ -120,7 +133,8 @@ namespace ConsoleApp1
         {
             new Monster("고블린", 1),
             new Monster("오크", 2),
-            new Monster("슬라임", 3)
+            new Monster("대왕슬라임", 3),
+            new Monster("박경택",4)
         };
 
 

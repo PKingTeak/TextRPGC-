@@ -14,6 +14,7 @@ namespace ConsoleApp1.Child
     {
         public Player()
         {
+           
             State.Hp = 100;
             State.Mp = 50;
             State.Damage = 10;
@@ -21,6 +22,8 @@ namespace ConsoleApp1.Child
             State.Level = 1;
             State.defense = 5;
             State.Luck = 2;
+            State.MaxHp = 100;
+        
         }
 
         public override void Update() //컴파일러 가일부러 막았음 접근제한자 통일해야해 왜냐?? 부모 틱도 돌리니까
@@ -52,6 +55,10 @@ namespace ConsoleApp1.Child
             //여기서 Item.Tick해서 이전으로 반복문으로 돌아가는 방식 
         }
 
+        public void ResetHP()
+        {
+            State.Hp = State.MaxHp;
+        }
        
 
         public void AddItem(Item _item)
@@ -76,6 +83,12 @@ namespace ConsoleApp1.Child
                    Console.WriteLine($"아이템:{item.Name} \n|공격력"); //여기 item.data.damage이렇게
                 }
             }
+        }
+
+        public void TakeGold(int _Gold)
+        {
+            Console.WriteLine($"골드를 획득했습니다 {_Gold}");
+            State.Gold += _Gold;
         }
 
         

@@ -18,16 +18,17 @@ namespace ConsoleApp1
             UnitName = Name;  //이름 셋팅
         }
 
-        public void Init(string _job, int _hp , int _mp , int _damage, int _level , int _defense , int _gold , int _luck = 1)
+        public void Init(string _job, int _hp , int _mp , int _damage, int _level , int _defense , int _gold , int _luck =2)
         {
                 State.Job = _job;
-                State.Hp = _hp;
+                State.MaxHp = _hp;
                 State.Mp = _mp;
                 State.Damage = _damage;
                 State.Level = _level; 
                 State.defense = _defense;
                 State.Gold = _gold;
                 State.Luck = _luck;
+                State.MaxDamage = _damage * _luck;
                 
 
         }
@@ -52,7 +53,8 @@ namespace ConsoleApp1
            public int Exp;
            public string Info;
            public int MaxHp;
-            public int Luck;
+           public int Luck;
+            public int MaxDamage;
             //경험치는 플레이어 만 있으면 될듯
 
         }
@@ -60,10 +62,12 @@ namespace ConsoleApp1
         protected virtual void LevelUP()
         {
             MaxExp = State.Level * 100;
-            this.State.MaxHp = State.Hp + (10 * State.Level);
-            State.Hp = MaxHp; 
+            this.State.MaxHp = this.State.MaxHp * State.Level;
             this.State.Damage += (State.Level+5);
             this.State.Mp += (State.Level * 10);
+            this.State.Luck = State.Level;
+            this.State.Hp = State.MaxHp;
+           
         }
 
         public int GetGold()
@@ -145,6 +149,7 @@ namespace ConsoleApp1
             return result;
         }
         
+       
 
         protected int MaxExp = 100;
         protected int MaxHp = 100;
