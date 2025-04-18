@@ -120,7 +120,7 @@ namespace ConsoleApp1
         {
             new Monster("고블린", 1),
             new Monster("오크", 2),
-             new Monster("슬라임", 3)
+            new Monster("슬라임", 3)
         };
 
 

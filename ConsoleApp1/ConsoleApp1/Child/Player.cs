@@ -20,6 +20,7 @@ namespace ConsoleApp1.Child
             State.Gold = 800;
             State.Level = 1;
             State.defense = 5;
+            State.Luck = 2;
         }
 
         public override void Update() //컴파일러 가일부러 막았음 접근제한자 통일해야해 왜냐?? 부모 틱도 돌리니까

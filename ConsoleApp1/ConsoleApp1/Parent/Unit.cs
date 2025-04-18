@@ -18,7 +18,7 @@ namespace ConsoleApp1
             UnitName = Name;  //이름 셋팅
         }
 
-        public void Init(string _job, int _hp , int _mp , int _damage, int _level , int _defense , int _gold)
+        public void Init(string _job, int _hp , int _mp , int _damage, int _level , int _defense , int _gold , int _luck = 1)
         {
                 State.Job = _job;
                 State.Hp = _hp;
@@ -27,6 +27,7 @@ namespace ConsoleApp1
                 State.Level = _level; 
                 State.defense = _defense;
                 State.Gold = _gold;
+                State.Luck = _luck;
                 
 
         }
@@ -51,6 +52,7 @@ namespace ConsoleApp1
            public int Exp;
            public string Info;
            public int MaxHp;
+            public int Luck;
             //경험치는 플레이어 만 있으면 될듯
 
         }
@@ -120,11 +122,13 @@ namespace ConsoleApp1
         }
         public void Attack(Unit _otherUnit)
         {
+            int value = RandomValue(State.Damage, State.Damage * State.Luck);
             Console.WriteLine("\n 일반 공격!");
-            Console.WriteLine($"{(State.Damage - _otherUnit.State.defense)}의 데미지로 공격");
-            _otherUnit.State.Hp -= (State.Damage - _otherUnit.State.defense);
+
+            Console.WriteLine($"{(value - _otherUnit.State.defense)}의 데미지로 공격");
+            _otherUnit.State.Hp -= (value - _otherUnit.State.defense);
            
-            random.Next(State.Damage, State.Damage + 5);
+          
         }
         public void UseSkill(Unit _otherUnit)
         {
@@ -134,6 +138,13 @@ namespace ConsoleApp1
             State.Mp -= 50;
            
         }
+
+        protected int RandomValue(int _min , int _max)
+        {
+            int result = random.Next(_min, _max);
+            return result;
+        }
+        
 
         protected int MaxExp = 100;
         protected int MaxHp = 100;
