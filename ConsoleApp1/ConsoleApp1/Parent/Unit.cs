@@ -46,7 +46,7 @@ namespace ConsoleApp1
            public string Job;
            public int Hp;
            public int Mp;
-           public int Damage;
+           public int Damage ;
            public int Level;
            public int defense;
            public int Gold;
@@ -152,8 +152,14 @@ namespace ConsoleApp1
             int result = random.Next(_min, _max);
             return result;
         }
+
+        public string GetName()
+        {
+            return UnitName;
+        }
+
         
-       
+
 
         protected int MaxExp = 100;
         protected int MaxHp = 100;

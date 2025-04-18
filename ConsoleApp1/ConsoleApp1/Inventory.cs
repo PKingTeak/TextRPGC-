@@ -69,6 +69,11 @@ namespace ConsoleApp1
 
         }
 
+        public List<Item> GetPlayerItems()
+        {
+            return Myinventory;
+        }
+
         private bool showNum = false;
         List<Item> Myinventory = new List<Item>();
         //아이템 이름으로 찾는 경우가 많기 때문에 
